@@ -227,7 +227,7 @@ form {
       justify-content: center;
     }
 
-    .block_2 {
+    .block_2 > .block2_item {
       display: none;
     }
 
