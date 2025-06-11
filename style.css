@@ -1,0 +1,122 @@
+/* Сброс стилей (CSS Reset) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  background: transparent;
+}
+article, aside, details, figcaption, figure,
+footer, header, main, menu, nav, section {
+  display: block;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 500px) {
+  /* Десктопные стили */
+
+body {
+  background-color: #DAFFDE;
+  color: #333;
+  line-height: 1.2;
+  max-width: 1366px;
+}
+
+.header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 3rem 1rem 3rem;
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.main {
+  margin: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#offer {
+  font-weight: 400;
+}
+
+}
+
+/* Адаптация под смартфоны */
+@media (max-width: 499px) {
+
+body {
+  background-color: #DAFFDE;
+  color: #333;
+  line-height: 1.1;
+  max-width: 499px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+#auth_icon {
+  display: none;
+}
+
+.main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.block_2 {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#offer {
+  font-weight: 400;
+  text-align: center;
+}
+}
