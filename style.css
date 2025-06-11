@@ -50,7 +50,7 @@ body {
   background-color: #DAFFDE;
   color: #333;
   line-height: 1.2;
-  max-width: 1366px;
+  max-width: 100%;
 }
 
 .header {
@@ -67,6 +67,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 85vh;
 }
 
 #offer {
