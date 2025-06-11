@@ -16,10 +16,20 @@
   </div>
 
   <div class="main">
-    <div class="block_1"> <img src="img/peoples.svg" alt="peoples" class="peoples" /> </div>
+    <div class="block_1">
+        <form class="login" action="/login" method="post">
+        <h2>Вход</h2>
+        <input type="text" name="login" placeholder="Логин" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit"><img src="img/auth_btn.svg" alt=""></button>
+        <button type="submit"><a class="register" href="register.html">Зарегистрироваться</a></button>
+        </form>
+    </div>
     <div class="block_2">
-      <H1 id="offer">Сервис для <br> обмена сменами</H1> <br>
-      <a href="login.html"><img src="img/auth_btn.svg" alt="auth_btn"></a>
+      <div class="block2_item"><img src="img/fast.svg" alt="fast"></div>
+      <div class="block2_item"><img src="img/easy.svg" alt="easy"></div>
+      <div class="block2_item"><img src="img/clear.svg" alt="clear"></div>
+      <div class="block2_item"><img src="img/safe.svg" alt="safe"></div>
     </div>
   </div>
 </body>
