@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>СМЕНА — сервис для обмена сменами</title>
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon_16.ico" sizes="16x16">
+  <link rel="icon" type="image/png" href="/favicon/favicon_32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon/favicon_512.png" sizes="512x512">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+   <div class="header">
+    <a href="{% url 'home' %}"><img src="{% static 'accounts/img/logo.svg' %}" alt="logo"></a>
+    <a href="{% url 'login' %}"><img id="auth_icon" src="{% static 'accounts/img/auth_icon.svg' %}" alt="auth_icon"></a>
+  </div>
+
+  <div class="main">
+    <div class="block_1">
+        <form class="register" method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <h2 id="h2_form">Регистрация</h2>
+
+        <input type="text" name="{{ form.username.html_name }}" placeholder="Логин" 
+               value="{{ form.username.value|default_if_none:'' }}" required 
+               class="custom-input" id="id_username">
+               {{ form.username.errors }}
+
+        <input type="text" name="{{ form.employee_id.html_name }}" placeholder="Табельный номер" 
+               value="{{ form.employee_id.value|default_if_none:'' }}" required 
+               class="custom-input" id="id_employee_id">
+               {{ form.employee_id.errors }}
+
+        <input type="password" name="{{ form.password1.html_name }}" placeholder="Пароль" required 
+               class="custom-input" id="id_password1">
+               {{ form.password1.errors }}
+
+        <input type="password" name="{{ form.password2.html_name }}" placeholder="Повторите пароль" required 
+               class="custom-input" id="id_password2">
+               {{ form.password2.errors }}
+               
+        <button type="submit"><img src="{% static 'accounts/img/register_btn.svg' %}" alt="register_btn"></button>
+        <a class="register" href="{% url 'login' %}">Уже есть аккаунт? <span id="gotologinbtn">Войти</span></a>
+        </form>
+    </div>
+    <div class="block_2">
+      <div class="block2_item"><img src="{% static 'accounts/img/fast.svg' %}" alt="fast"></div>
+      <div class="block2_item"><img src="{% static 'accounts/img/easy.svg' %}" alt="easy"></div>
+      <div class="block2_item"><img src="{% static 'accounts/img/clear.svg' %}" alt="clear"></div>
+      <div class="block2_item"><img src="{% static 'accounts/img/safe.svg' %}" alt="safe"></div>
+    </div>
+  </div>
+
+
+              <h3 class="banner" style="position: fixed; bottom: 0; width: 100%; background: #ffeb3b; padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+  <span>Внимание! Сайт работает в тестовом режиме — при заполнении форм указывайте вымышленные данные, не относящиеся к реальности.</span>
+  <button id="banner-close-btn" style="
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: 2px solid #333;
+    background-color: white;
+    color: #333;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  " 
+  onmouseover="this.style.backgroundColor='#333'; this.style.color='white';"
+  onmouseout="this.style.backgroundColor='white'; this.style.color='#333';"
+  >Понял, закрыть</button>
+</h3>
+
+<script>
+  document.getElementById('banner-close-btn').addEventListener('click', () => {
+    document.querySelector('.banner').style.display = 'none';
+  });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

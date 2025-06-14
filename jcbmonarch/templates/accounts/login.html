@@ -1,0 +1,76 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>СМЕНА — сервис для обмена сменами</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon_16.ico' %}" sizes="16x16">
+  <link rel="icon" type="image/png" href="{% static 'favicon/favicon_32.png' %}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{% static 'favicon/favicon_512.png' %}" sizes="512x512">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="header">
+    <a href="{% url 'home' %}"><img src="{% static 'accounts/img/logo.svg' %}" alt="logo"></a>
+    <a href="{% url 'login' %}"><img id="auth_icon" src="{% static 'accounts/img/auth_icon.svg' %}" alt="auth_icon"></a>
+  </div>
+
+  <div class="main">
+    <div class="block_1">
+      <form class="login" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <h2 id="h2_form">Вход</h2>
+        <input type="text" name="login" placeholder="Логин" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit">
+          <img src="{% static 'accounts//img/auth_btn.svg' %}" alt="auth_btn">
+        </button>
+        <a class="register" href="{% url 'register' %}"><span id="gotologinbtn">Зарегистрироваться</span></a>
+        
+      </form>
+    </div>
+
+    <div class="block_2">
+      <div class="block2_item"><img src="{% static 'accounts/img/fast.svg' %}" alt="fast"></div>
+      <div class="block2_item"><img src="{% static 'accounts//img/easy.svg' %}" alt="easy"></div>
+      <div class="block2_item"><img src="{% static 'accounts//img/clear.svg' %}" alt="clear"></div>
+      <div class="block2_item"><img src="{% static 'accounts//img/safe.svg' %}" alt="safe"></div>
+    </div>
+  </div>
+
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const messages = document.querySelectorAll('.messages li');
+    if (messages.length > 0) {
+      setTimeout(() => {
+        messages.forEach(msg => {
+          msg.style.opacity = '0';
+        });
+      }, 3000);
+      setTimeout(() => {
+        const container = document.querySelector('.messages');
+        if (container) container.remove();
+      }, 5000);
+    }
+  });
+</script>
+
+</body>
+</html>
